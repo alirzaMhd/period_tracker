@@ -1,2 +1,2 @@
 export 'appwrite_constants.dart';
-export 'pallete.dart';
+export 'theme_constants.dart';
