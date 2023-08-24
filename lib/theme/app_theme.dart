@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import './pallete.dart';
+import '../constants/constants.dart';
 
 class AppTheme {
-  static ThemeData theme = ThemeData.light().copyWith(
+  static ThemeData themeLight = ThemeData.light().copyWith(
     scaffoldBackgroundColor: Pallete.whiteColor,
   );
 }
