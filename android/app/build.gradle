@@ -23,7 +23,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.alimahmoodi.period_tracker"
+    namespace "com.alirzaMhd.period_tracker"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
