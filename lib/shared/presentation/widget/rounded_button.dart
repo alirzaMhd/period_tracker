@@ -5,8 +5,7 @@ class RoundedButton extends StatelessWidget {
   final String _text;
   final TextStyle textStyle;
   final Color color;
-  final double width;
-  final double height;
+  final Size size;
   final VoidCallback onPressed;
 
   const RoundedButton({
@@ -14,8 +13,7 @@ class RoundedButton extends StatelessWidget {
     required text,
     required this.textStyle,
     required this.color,
-    required this.width,
-    required this.height,
+    required this.size,
     required this.onPressed,
   })  : _text = text,
         super(key: key);
@@ -25,6 +23,7 @@ class RoundedButton extends StatelessWidget {
     return FilledButton(
       onPressed: onPressed,
       style: ButtonStyle(
+        fixedSize: MaterialStateProperty.all<Size>(size),
         backgroundColor: MaterialStateProperty.all<Color>(color),
         textStyle: MaterialStateProperty.all<TextStyle>(textStyle),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(

@@ -10,6 +10,8 @@ class AssetsConstants {
   static const reminderIcon = '$_iconPath/reminder_icon.svg';
   static const settingIcon = '$_iconPath/setting_icon.svg';
   static const tipsIcon = '$_iconPath/tips_icon.svg';
+  static const forwardIcon = '$_iconPath/forward_icon.svg';
+  static const backIcon = '$_iconPath/backward_icon.svg';
 
   static const callenderPic = '$_svgPath/callender.svg';
   static const doctorPic = '$_svgPath/doctor.svg';
