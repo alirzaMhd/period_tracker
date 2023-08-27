@@ -8,12 +8,14 @@ class CalendarUseCases {
   }
 
   static DateTime getPreviousMonth() {
-    DateTime previousMonth = DateTime(DateTime.now().year, DateTime.now().month-1);
+    DateTime previousMonth =
+        DateTime(DateTime.now().year, DateTime.now().month - 1);
     return previousMonth;
   }
 
   static DateTime getNextMonth() {
-    DateTime nextMonth = DateTime(DateTime.now().year, DateTime.now().month+1);
+    DateTime nextMonth =
+        DateTime(DateTime.now().year, DateTime.now().month + 1);
     return nextMonth;
   }
 
@@ -63,9 +65,6 @@ class CalendarUseCases {
 
     return isOvulationDay;
   }
-  // final bool isPeriodNeeded = periodDay != null && howMuchPeriodTakes != null;
-  // final bool isOvulationNeeded =
-  //     ovulationDay != null && howMuchOvulationTakes != null;
 
   static List<Widget> fillCalendarDays({required DateTime currentMonth}) {
     List<Widget> days = [];
@@ -81,7 +80,6 @@ class CalendarUseCases {
       days.add(DayCell(
         day: day,
         isCurrentMonth: false,
-        selectDate: selectDate,
       ));
     }
 
@@ -91,7 +89,6 @@ class CalendarUseCases {
       days.add(DayCell(
         day: day,
         isCurrentMonth: false,
-        selectDate: selectDate,
       ));
     }
 
@@ -103,13 +100,8 @@ class CalendarUseCases {
       days.add(DayCell(
         day: day,
         isCurrentMonth: false,
-        selectDate: selectDate,
       ));
     }
     return days;
-  }
-
-  static DateTime selectDate(DateTime selectedDate) {
-    return selectedDate;
   }
 }
