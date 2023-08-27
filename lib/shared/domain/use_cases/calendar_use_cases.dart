@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:period_tracker/shared/presentation/widget/calendar/calendar.dart';
 
-class Calendar {
+class CalendarUseCases {
+  static DateTime getCurrentMonth() {
+    DateTime currentMonth = DateTime(DateTime.now().year, DateTime.now().month);
+    return currentMonth;
+  }
+
+  static DateTime getPreviousMonth() {
+    DateTime previousMonth = DateTime(DateTime.now().year, DateTime.now().month-1);
+    return previousMonth;
+  }
+
+  static DateTime getNextMonth() {
+    DateTime nextMonth = DateTime(DateTime.now().year, DateTime.now().month+1);
+    return nextMonth;
+  }
+
   static DateTime initSelectedDay() {
     return DateTime.now();
   }

@@ -25,29 +25,29 @@ class DayCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDate = Calendar.initSelectedDay();
+    DateTime selectedDate = CalendarUseCases.initSelectedDay();
     final bool isSelected =
-        Calendar.isSelected(day: day, selectedDate: selectedDate);
+        CalendarUseCases.isSelected(day: day, selectedDate: selectedDate);
     final bool isPeriodNeeded = periodDay != null && howMuchPeriodTakes != null;
     bool isPeriodDay = false;
     bool isOvulationDay = false;
 
     if (isPeriodNeeded) {
-      isPeriodDay = Calendar.isPeriodDay(
+      isPeriodDay = CalendarUseCases.isPeriodDay(
           day: day,
           periodDay: periodDay!,
           howMuchPeriodTakes: howMuchPeriodTakes!);
 
       //TODO:learn more about Ovulation
-      isOvulationDay = Calendar.isOvulationDay(
+      isOvulationDay = CalendarUseCases.isOvulationDay(
           day: day,
           ovulationDay: ovulationDay!,
           howMuchOvulationTakes: howMuchOvulationTakes!);
     }
 
-    final bool isToday = Calendar.isToday(day: day);
+    final bool isToday = CalendarUseCases.isToday(day: day);
 
-    final bool isOccasionOrSelected = Calendar.isOccasionOrSelected(
+    final bool isOccasionOrSelected = CalendarUseCases.isOccasionOrSelected(
         isPeriodDay: isPeriodDay,
         isOvulationDay: isOvulationDay,
         isSelected: isSelected);

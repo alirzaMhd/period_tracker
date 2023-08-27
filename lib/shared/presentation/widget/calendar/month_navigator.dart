@@ -4,13 +4,14 @@ import 'package:intl/intl.dart';
 
 class MonthNavigator extends StatelessWidget {
   final DateTime currentMonth;
-  final VoidCallback previousMonth;
-  final VoidCallback nextMonth;
+  final VoidCallback previousMonthFunction;
+  final VoidCallback nextMonthFunction;
 
-  MonthNavigator({
+  const MonthNavigator({
+    super.key,
     required this.currentMonth,
-    required this.previousMonth,
-    required this.nextMonth,
+    required this.previousMonthFunction,
+    required this.nextMonthFunction,
   });
 
   @override
@@ -18,22 +19,22 @@ class MonthNavigator extends StatelessWidget {
     return Row(
       children: [
         MonthNavigatorButton(
-          onPressed: previousMonth,
+          onPressed: previousMonthFunction,
           //TODO
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
         Expanded(
           child: Center(
             child: Text(
               DateFormat.MMMM().format(currentMonth),
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
         ),
         MonthNavigatorButton(
-          onPressed: previousMonth,
+          onPressed: previousMonthFunction,
           //TODO
-          icon: Icon(Icons.arrow_forward),
+          icon: const Icon(Icons.arrow_forward),
         ),
       ],
     );

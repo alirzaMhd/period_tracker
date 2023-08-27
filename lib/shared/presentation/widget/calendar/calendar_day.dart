@@ -10,7 +10,7 @@ class CalendarDaysWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> days = Calendar.fillCalendarDays(currentMonth: currentMonth);
+    List<Widget> days = CalendarUseCases.fillCalendarDays(currentMonth: currentMonth);
     return Column(
       children: List.generate(5, (index) {
         return Row(
