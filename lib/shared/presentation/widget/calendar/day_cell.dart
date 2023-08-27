@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:period_tracker/constants/constants.dart';
+import 'package:period_tracker/shared/domain/use_cases/use_cases.dart';
 
 class DayCell extends StatelessWidget {
   final DateTime day;
@@ -24,25 +25,32 @@ class DayCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDate = DateTime.now();
-    final bool isSelected = day.isAtSameMomentAs(selectedDate);
+    DateTime selectedDate = Calendar.initSelectedDay();
+    final bool isSelected =
+        Calendar.isSelected(day: day, selectedDate: selectedDate);
     final bool isPeriodNeeded = periodDay != null && howMuchPeriodTakes != null;
-    final bool isOvulationNeeded =
-        ovulationDay != null && howMuchOvulationTakes != null;
+    bool isPeriodDay = false;
+    bool isOvulationDay = false;
 
-    final bool isPeriodDay = isPeriodNeeded &&
-        day.difference(periodDay!).inDays >= 0 &&
-        day.difference(periodDay!).inDays <= howMuchPeriodTakes!;
+    if (isPeriodNeeded) {
+      isPeriodDay = Calendar.isPeriodDay(
+          day: day,
+          periodDay: periodDay!,
+          howMuchPeriodTakes: howMuchPeriodTakes!);
 
-    //TODO:learn more about Ovulation
-    final bool isOvulationDay = isOvulationNeeded &&
-        day.difference(ovulationDay!).inDays >= 0 &&
-        day.difference(ovulationDay!).inDays <= howMuchOvulationTakes!;
+      //TODO:learn more about Ovulation
+      isOvulationDay = Calendar.isOvulationDay(
+          day: day,
+          ovulationDay: ovulationDay!,
+          howMuchOvulationTakes: howMuchOvulationTakes!);
+    }
 
-    final bool isToday = day.isAtSameMomentAs(DateTime.now());
+    final bool isToday = Calendar.isToday(day: day);
 
-    final bool isOccasionOrSelected =
-        isPeriodDay || isOvulationDay || isSelected;
+    final bool isOccasionOrSelected = Calendar.isOccasionOrSelected(
+        isPeriodDay: isPeriodDay,
+        isOvulationDay: isOvulationDay,
+        isSelected: isSelected);
     //TODO
     // Color backgroundColor = isOvulationDay?
     //     : isPeriodDay

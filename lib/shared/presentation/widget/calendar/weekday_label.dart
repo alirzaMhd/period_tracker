@@ -4,14 +4,13 @@ import 'package:period_tracker/constants/constants.dart';
 
 class WeekdayLabels extends StatelessWidget {
   final DateFormat formatter = DateFormat.E();
-  final List<String> weekdays = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
   WeekdayLabels({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: weekdays.map(
+      children: UIConstants.weekdaysLabels.map(
         (day) {
           return Expanded(
             child: Center(

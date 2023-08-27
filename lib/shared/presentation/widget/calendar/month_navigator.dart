@@ -19,6 +19,7 @@ class MonthNavigator extends StatelessWidget {
       children: [
         MonthNavigatorButton(
           onPressed: previousMonth,
+          //TODO
           icon: Icon(Icons.arrow_back),
         ),
         Expanded(
@@ -31,6 +32,7 @@ class MonthNavigator extends StatelessWidget {
         ),
         MonthNavigatorButton(
           onPressed: previousMonth,
+          //TODO
           icon: Icon(Icons.arrow_forward),
         ),
       ],

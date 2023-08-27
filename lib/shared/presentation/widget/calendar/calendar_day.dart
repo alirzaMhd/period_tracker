@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:period_tracker/shared/domain/use_cases/calendar.dart';
+import 'package:period_tracker/shared/domain/use_cases/use_cases.dart';
 
 class CalendarDaysWidget extends StatelessWidget {
   final DateTime currentMonth;
