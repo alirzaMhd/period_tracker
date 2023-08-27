@@ -31,10 +31,12 @@ dependencies:
   flutter:
     sdk: flutter
   appwrite: ^8.1.0
+  intl: ^0.18.1
 
 
   # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  #th the CupertinoIcons class for iOS style icons.
+
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -78,23 +80,33 @@ flutter:
     - family: CarmenSans
       fonts:
         - asset: fonts/CarmenSans-Regular.otf
+          weight: 100
         - asset: fonts/CarmenSans-Italic.otf
-          style: italic
+          weight: 100
+
         - asset: fonts/CarmenSans-Bold.otf
-          style: Bold
+          weight: 100
+
         - asset: fonts/CarmenSans-ExtraBold.otf
-          style: ExtraBold
+          weight: 100
+
         - asset: fonts/CarmenSans-Heavy.otf
-          style: Heavy
+          weight: 100
+
         - asset: fonts/CarmenSans-Light.otf
-          style: Light
+          weight: 100
+
         - asset: fonts/CarmenSans-Medium.otf
-          style: Medium
+          weight: 100
+
         - asset: fonts/CarmenSans-SemiBold.otf
-          style: SemiBold
+          weight: 100
+
         - asset: fonts/CarmenSans-Thin.otf
-          style: Thin
+          weight: 100
+
         - asset: fonts/CarmenSans-UltraLight.otf
-          style: UltraLight
+          weight: 100
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
