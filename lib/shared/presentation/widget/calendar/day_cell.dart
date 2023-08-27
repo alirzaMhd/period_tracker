@@ -4,7 +4,6 @@ import 'package:period_tracker/constants/constants.dart';
 class DayCell extends StatelessWidget {
   final DateTime day;
   final bool isCurrentMonth;
-  final DateTime selectedDate;
   final Function(DateTime) selectDate;
   final DateTime? periodDay;
   final int? howMuchPeriodTakes;
@@ -16,7 +15,6 @@ class DayCell extends StatelessWidget {
     Key? key,
     required this.day,
     required this.isCurrentMonth,
-    required this.selectedDate,
     required this.selectDate,
     this.periodDay,
     this.howMuchPeriodTakes,
@@ -26,6 +24,7 @@ class DayCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime selectedDate = DateTime.now();
     final bool isSelected = day.isAtSameMomentAs(selectedDate);
     final bool isPeriodNeeded = periodDay != null && howMuchPeriodTakes != null;
     final bool isOvulationNeeded =
@@ -41,7 +40,9 @@ class DayCell extends StatelessWidget {
         day.difference(ovulationDay!).inDays <= howMuchOvulationTakes!;
 
     final bool isToday = day.isAtSameMomentAs(DateTime.now());
-    
+
+    final bool isOccasionOrSelected =
+        isPeriodDay || isOvulationDay || isSelected;
     //TODO
     // Color backgroundColor = isOvulationDay?
     //     : isPeriodDay
@@ -54,7 +55,7 @@ class DayCell extends StatelessWidget {
             ? Pallete.redColor
             : Pallete.whiteColor;
 
-    Color textColor = isSelected
+    Color textColor = isOccasionOrSelected
         ? Pallete.whiteColor
         : (isCurrentMonth ? Pallete.blackColor : Pallete.lightGreyColor);
 
