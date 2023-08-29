@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:period_tracker/constants/constants.dart';
-import 'package:period_tracker/constants/string_constants.dart';
 import 'package:period_tracker/shared/presentation/widget/widget.dart';
 
 class SplashScreen extends StatelessWidget {

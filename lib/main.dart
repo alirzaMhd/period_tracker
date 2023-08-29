@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:period_tracker/features/authentication/presentation/screens/new_user.dart';
 import 'package:period_tracker/theme/theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           theme: AppTheme.themeLight,
-          home: const SplashScreen(),
+          home: const NewUser(),
         );
       },
     );

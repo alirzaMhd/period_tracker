@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
-import 'calendar.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:period_tracker/shared/presentation/provider/provider.dart';
+import 'package:period_tracker/shared/domain/provider/provider.dart';
+import '../widget.dart';
 
 class CalendarWidget extends ConsumerWidget {
+  
+  static final monthNavigatorProvider =
+      StateNotifierProvider<MonthNavigatorProvider, DateTime>(
+          (ref) => MonthNavigatorProvider());
   const CalendarWidget({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    DateTime currentMonth = ref.watch(CalendarProvider.monthNavigatorProvider);
+    DateTime currentMonth =
+        ref.watch(monthNavigatorProvider);
 
     return Column(
       children: [
-        MonthNavigator(
-          currentMonth: currentMonth,
-          previousMonthFunction: () => ref
-              .read(CalendarProvider.monthNavigatorProvider.notifier)
+        NavigatorWidget(
+          currentValue: DateFormat.MMMM().format(currentMonth),
+          previousFunction: () => ref
+              .read(monthNavigatorProvider.notifier)
               .previousMonth(),
-          nextMonthFunction: () => ref
-              .read(CalendarProvider.monthNavigatorProvider.notifier)
+          nextFunction: () => ref
+              .read(monthNavigatorProvider.notifier)
               .previousMonth(),
         ),
         const WeekdayLabels(),

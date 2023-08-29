@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:period_tracker/constants/constants.dart';
+import 'package:period_tracker/shared/domain/provider/provider.dart';
 import 'package:period_tracker/shared/domain/use_cases/use_cases.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:period_tracker/shared/presentation/provider/calendar_provider.dart';
 
 class DayCell extends ConsumerWidget {
   final DateTime day;
@@ -25,7 +25,10 @@ class DayCell extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    DateTime selectedDate = ref.watch(CalendarProvider.selectDateProvider);
+    final selectDateProvider =
+        StateNotifierProvider<SelectDateProvider, DateTime>(
+            (ref) => SelectDateProvider());
+    DateTime selectedDate = ref.watch(selectDateProvider);
 
     final bool isSelected =
         CalendarUseCases.isSelected(day: day, selectedDate: selectedDate);
@@ -70,9 +73,7 @@ class DayCell extends ConsumerWidget {
 
     return Expanded(
       child: GestureDetector(
-        onTap: () => ref
-            .read(CalendarProvider.selectDateProvider.notifier)
-            .selectDate(day),
+        onTap: () => ref.read(selectDateProvider.notifier).selectDate(day),
         child: AspectRatio(
           aspectRatio: 1.0,
           child: Container(

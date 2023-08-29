@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:period_tracker/constants/constants.dart';
 
-class MonthNavigatorButton extends StatelessWidget {
+class NavigatorButton extends StatelessWidget {
   final Icon _icon;
   final VoidCallback onPressed;
 
-  const MonthNavigatorButton({
+  const NavigatorButton({
     Key? key,
     required icon,
     required this.onPressed,
