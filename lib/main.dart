@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
         return MaterialApp(
-          title: 'Flutter Demo',
           theme: AppTheme.themeLight,
           home: const NewUser(),
         );

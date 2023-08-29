@@ -1,8 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class NavigatorProvider extends StateNotifier<int> {
-  final int initValue;
-  NavigatorProvider(this.initValue) : super(initValue);
+  NavigatorProvider() : super(5);
   void increaseValue() {
     state++;
   }

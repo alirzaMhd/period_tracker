@@ -15,7 +15,8 @@ class AuthField extends StatelessWidget {
     required this.height,
     required this.width,
     required this.contentPaddingHorizontal,
-    required this.contentPaddingVertical, required this.hintText,
+    required this.contentPaddingVertical,
+    required this.hintText,
   }) : super(key: key);
 
   @override
@@ -32,13 +33,12 @@ class AuthField extends StatelessWidget {
       ),
       child: TextField(
         controller: controller,
-        
+        style: TextStylesConstants.bodyLarge(context)!.copyWith(
+          color: Pallete.greyColor,
+        ),
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hintText,
-          hintStyle: TextStylesConstants.bodyLarge(context)!.copyWith(
-            color: Pallete.greyColor,
-          ),
           contentPadding: EdgeInsets.symmetric(
             horizontal: contentPaddingHorizontal,
             vertical: contentPaddingVertical,

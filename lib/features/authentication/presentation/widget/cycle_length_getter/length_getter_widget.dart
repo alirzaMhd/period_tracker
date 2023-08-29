@@ -9,38 +9,59 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class LengthGetterWidget extends ConsumerWidget {
   final String text;
   final int navigatorInitValue;
+  final bool isChecked;
+  final VoidCallback checkboxOnTap;
+
+  final int currentValue;
+
+  final VoidCallback nextFunction;
+
+  final VoidCallback previousFunction;
   const LengthGetterWidget({
     super.key,
     required this.text,
     required this.navigatorInitValue,
+    required this.isChecked,
+    required this.checkboxOnTap,
+    required this.currentValue,
+    required this.nextFunction,
+    required this.previousFunction,
   });
+  void _handleButtonPress() {
+    print('Button pressed');
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final navigatorProvider =
-        StateNotifierProvider<NavigatorProvider, int>((ref) {
-      return NavigatorProvider(navigatorInitValue);
-    });
-    final int currentValue = ref.watch(navigatorProvider);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          text,
-          style: TextStylesConstants.bodyLarge(context)!.copyWith(
-            color: Pallete.greyColor,
+    return SizedBox(
+      width: 291.w,
+      height: 42.h,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text,
+            style: TextStylesConstants.bodyLarge(context)!.copyWith(
+              color: Pallete.greyColor,
+            ),
           ),
-        ),
-        NavigatorWidget(
-          currentValue: currentValue.toString(),
-          previousFunction:()=> ref.read(navigatorProvider.notifier).decreaseValue(),
-          nextFunction:()=> ref.read(navigatorProvider.notifier).increaseValue(),
-        ),
-        CustomCheckbox(
-          width: 20.w,
-          height: 20.h,
-        )
-      ],
+          Center(
+            child: NavigatorWidget(
+              height: 42.h,
+              width: 92.w,
+              currentValue: currentValue.toString(),
+              previousFunction: previousFunction,
+              nextFunction: nextFunction,
+            ),
+          ),
+          CustomCheckbox(
+            width: 15.w,
+            height: 15.w,
+            isChecked: isChecked,
+            checkboxOnTap: checkboxOnTap,
+          )
+        ],
+      ),
     );
   }
 }

@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:period_tracker/constants/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:period_tracker/features/authentication/presentation/provider/provider.dart';
+import 'package:period_tracker/features/authentication/presentation/widget/widget.dart';
 import 'package:period_tracker/shared/presentation/widget/widget.dart';
-import '../widget/widget.dart';
 
-class NewUser extends StatelessWidget {
+class NewUser extends ConsumerWidget {
   const NewUser({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    bool isCheckedCycle = ref.watch(NewUserProvider.checkBoxCycleProvider);
+    bool isCheckedPeriod = ref.watch(NewUserProvider.checkBoxPeriodProvider);
+    int currentCycleValue = ref.watch(NewUserProvider.navigatorCycleProvider);
+    int currentPeriodValue = ref.watch(NewUserProvider.navigatorPeriodProvider);
     return Scaffold(
       body: SizedBox(
         width: UIConstants.screenWidth.w,
@@ -16,15 +22,17 @@ class NewUser extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 40.h,
+              height: 50.h,
             ),
-            Image.asset(
-              AssetsConstants.newUserPic,
-              width: 340.w,
-              height: 340.h,
+            Center(
+              child: Image.asset(
+                AssetsConstants.newUserPic,
+                width: 340.h,
+                height: 340.h,
+              ),
             ),
             SizedBox(
-              height: 40.h,
+              height: 20.h,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
@@ -35,7 +43,7 @@ class NewUser extends StatelessWidget {
                     .copyWith(color: Pallete.redColor),
               ),
             ),
-            SizedBox(height: 5.h),
+            SizedBox(height: 10.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 94.w),
               child: Text(
@@ -51,39 +59,60 @@ class NewUser extends StatelessWidget {
             AuthField(
               controller: TextEditingController(),
               hintText: StringConstants.enterYourName,
-              width: 300.w,
+              width: 270.w,
               height: 60.h,
               contentPaddingHorizontal: 18.w,
               contentPaddingVertical: 14.h,
             ),
             SizedBox(height: 20.h),
             SizedBox(
-              width: 291.w,
-              child: const LengthGetterWidget(
+              width: 250.w,
+              child: LengthGetterWidget(
                 text: StringConstants.yourCycleLength,
                 navigatorInitValue: 5,
+                isChecked: isCheckedCycle,
+                checkboxOnTap: () => ref
+                    .read(NewUserProvider.checkBoxCycleProvider.notifier)
+                    .toggleCheckbox(),
+                currentValue: currentCycleValue,
+                previousFunction: () => ref
+                    .read(NewUserProvider.navigatorCycleProvider.notifier)
+                    .decreaseValue(),
+                nextFunction: () => ref
+                    .read(NewUserProvider.navigatorCycleProvider.notifier)
+                    .increaseValue(),
               ),
             ),
-            SizedBox(height: 9.h),
             SizedBox(
-              width: 291.w,
-              child: const LengthGetterWidget(
+              width: 250.w,
+              child: LengthGetterWidget(
                 text: StringConstants.yourPeriodLength,
-                navigatorInitValue: 28,
+                navigatorInitValue: 5,
+                isChecked: isCheckedPeriod,
+                checkboxOnTap: () => ref
+                    .read(NewUserProvider.checkBoxPeriodProvider.notifier)
+                    .toggleCheckbox(),
+                currentValue: currentPeriodValue,
+                previousFunction: () => ref
+                    .read(NewUserProvider.navigatorPeriodProvider.notifier)
+                    .decreaseValue(),
+                nextFunction: () => ref
+                    .read(NewUserProvider.navigatorPeriodProvider.notifier)
+                    .increaseValue(),
               ),
             ),
-            SizedBox(height: 9.h),
+            SizedBox(height: 30.h),
             RoundedButton(
               text: StringConstants.next,
               textStyle: TextStylesConstants.bodyLarge(context)!
                   .copyWith(color: Pallete.whiteColor),
               color: Pallete.redColor,
-              size: Size(247.w, 41.h),
+              size: Size(230.w, 50.h),
               onPressed: () {},
             ),
-            SizedBox(height: 9.h),
+            SizedBox(height: 30.h),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 137.w),
+              padding: EdgeInsets.symmetric(horizontal: 130.w),
               child: Text(
                 StringConstants.rememberEveryOneIsUnique,
                 style: TextStylesConstants.bodyMedium(context)!.copyWith(
@@ -91,7 +120,7 @@ class NewUser extends StatelessWidget {
                   fontWeight: TextStylesConstants.regularFontWeight,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
