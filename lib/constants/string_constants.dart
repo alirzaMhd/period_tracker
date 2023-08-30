@@ -13,6 +13,7 @@ class StringConstants {
   static const String yourCycleLength = 'your cycle length';
   static const String yourPeriodLength = 'your period length';
   static const String next = 'next';
-  static const String rememberEveryOneIsUnique = 'Just remember everyone is uniqe';
-
+  static const String rememberEveryOneIsUnique =
+      'Just remember everyone is uniqe';
+  static const String whenWasYourLastPeriod = 'When was your last period';
 }

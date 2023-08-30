@@ -7,15 +7,13 @@ class CalendarUseCases {
     return currentMonth;
   }
 
-  static DateTime getPreviousMonth() {
-    DateTime previousMonth =
-        DateTime(DateTime.now().year, DateTime.now().month - 1);
+  static DateTime getPreviousMonth(DateTime state) {
+    DateTime previousMonth = DateTime(state.year,state.month-1,state.day);
     return previousMonth;
   }
 
-  static DateTime getNextMonth() {
-    DateTime nextMonth =
-        DateTime(DateTime.now().year, DateTime.now().month + 1);
+  static DateTime getNextMonth(DateTime state) {
+    DateTime nextMonth = DateTime(state.year,state.month+1,state.day);
     return nextMonth;
   }
 
@@ -66,7 +64,15 @@ class CalendarUseCases {
     return isOvulationDay;
   }
 
-  static List<Widget> fillCalendarDays({required DateTime currentMonth}) {
+  static bool isCurrentMonth(DateTime day, DateTime currentMonth) {
+    return day.month == currentMonth.month && day.year == currentMonth.year;
+  }
+
+  static List<Widget> fillCalendarDays({
+    required DateTime currentMonth,
+    required Function(DateTime) selectDate,
+    required DateTime selectedDate,
+  }) {
     List<Widget> days = [];
     final DateTime firstDayOfMonth =
         DateTime(currentMonth.year, currentMonth.month, 1);
@@ -79,9 +85,9 @@ class CalendarUseCases {
           firstDayOfMonth.subtract(Duration(days: daysInPreviousMonth - i));
       days.add(DayCell(
         day: day,
-        isCurrentMonth: false,
-        
-      
+        isCurrentMonth: isCurrentMonth(day, currentMonth),
+        selectDate: selectDate,
+        selectedDate: selectedDate,
       ));
     }
 
@@ -90,9 +96,9 @@ class CalendarUseCases {
       final DateTime day = DateTime(currentMonth.year, currentMonth.month, i);
       days.add(DayCell(
         day: day,
-        isCurrentMonth: false,
-        
-      
+        isCurrentMonth: isCurrentMonth(day, currentMonth),
+        selectDate: selectDate,
+        selectedDate: selectedDate,
       ));
     }
 
@@ -103,9 +109,9 @@ class CalendarUseCases {
           DateTime(currentMonth.year, currentMonth.month + 1, i);
       days.add(DayCell(
         day: day,
-        isCurrentMonth: false,
-        
-      
+        isCurrentMonth: isCurrentMonth(day, currentMonth),
+        selectDate: selectDate,
+        selectedDate: selectedDate,
       ));
     }
     return days;

@@ -5,10 +5,10 @@ class MonthNavigatorProvider extends StateNotifier<DateTime> {
   MonthNavigatorProvider() : super(CalendarUseCases.getCurrentMonth());
 
   void previousMonth() {
-    state = CalendarUseCases.getPreviousMonth();
+    state = CalendarUseCases.getPreviousMonth(state);
   }
 
   void nextMonth() {
-    state = CalendarUseCases.getNextMonth();
+    state = CalendarUseCases.getNextMonth(state);
   }
 }

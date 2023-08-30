@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:period_tracker/constants/constants.dart';
-import 'package:period_tracker/features/authentication/domain/provider/provider.dart';
 import 'package:period_tracker/features/authentication/presentation/widget/widget.dart';
 import 'package:period_tracker/shared/presentation/widget/widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,10 +12,9 @@ class LengthGetterWidget extends ConsumerWidget {
   final VoidCallback checkboxOnTap;
 
   final int currentValue;
-
   final VoidCallback nextFunction;
-
   final VoidCallback previousFunction;
+  
   const LengthGetterWidget({
     super.key,
     required this.text,

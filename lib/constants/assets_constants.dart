@@ -16,7 +16,7 @@ class AssetsConstants {
 
   static const newUserPic = '$_pngPath/new_pic.png';
   static const splashPic = '$_pngPath/splash_pic.png';
-  static const callenderPic = '$_svgPath/callender.svg';
+  static const calenderPic = '$_pngPath/calendar_pic.png';
   static const doctorPic = '$_svgPath/doctor.svg';
   static const sanitaryNapkinPic = '$_svgPath/sanitary_napkin.svg';
   static const womanMainPic = '$_svgPath/woman_main.svg';

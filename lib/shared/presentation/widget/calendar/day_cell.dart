@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:period_tracker/constants/constants.dart';
-import 'package:period_tracker/shared/domain/provider/provider.dart';
 import 'package:period_tracker/shared/domain/use_cases/use_cases.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DayCell extends ConsumerWidget {
+class DayCell extends StatelessWidget {
   final DateTime day;
-  final bool isCurrentMonth;
   final DateTime? periodDay;
   final int? howMuchPeriodTakes;
   //TODO:learn more about Ovulation
   final DateTime? ovulationDay;
   final int? howMuchOvulationTakes;
+  final bool isCurrentMonth;
+  final DateTime selectedDate;
+  final Function(DateTime) selectDate;
 
   const DayCell({
     Key? key,
@@ -21,15 +21,12 @@ class DayCell extends ConsumerWidget {
     this.howMuchPeriodTakes,
     this.ovulationDay,
     this.howMuchOvulationTakes,
+    required this.selectedDate,
+    required this.selectDate,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final selectDateProvider =
-        StateNotifierProvider<SelectDateProvider, DateTime>(
-            (ref) => SelectDateProvider());
-    DateTime selectedDate = ref.watch(selectDateProvider);
-
+  Widget build(BuildContext context) {
     final bool isSelected =
         CalendarUseCases.isSelected(day: day, selectedDate: selectedDate);
     final bool isPeriodNeeded = periodDay != null && howMuchPeriodTakes != null;
@@ -73,7 +70,7 @@ class DayCell extends ConsumerWidget {
 
     return Expanded(
       child: GestureDetector(
-        onTap: () => ref.read(selectDateProvider.notifier).selectDate(day),
+        onTap: selectDate(day),
         child: AspectRatio(
           aspectRatio: 1.0,
           child: Container(
