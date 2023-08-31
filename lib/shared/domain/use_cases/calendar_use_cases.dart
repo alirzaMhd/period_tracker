@@ -8,12 +8,12 @@ class CalendarUseCases {
   }
 
   static DateTime getPreviousMonth(DateTime state) {
-    DateTime previousMonth = DateTime(state.year,state.month-1,state.day);
+    DateTime previousMonth = DateTime(state.year, state.month - 1, state.day);
     return previousMonth;
   }
 
   static DateTime getNextMonth(DateTime state) {
-    DateTime nextMonth = DateTime(state.year,state.month+1,state.day);
+    DateTime nextMonth = DateTime(state.year, state.month + 1, state.day);
     return nextMonth;
   }
 
@@ -34,12 +34,13 @@ class CalendarUseCases {
     return isToday;
   }
 
-  static bool isOccasionOrSelected(
-      {required bool isPeriodDay,
-      required bool isOvulationDay,
-      required bool isSelected}) {
-    final bool isOccasionOrSelected =
-        isPeriodDay || isOvulationDay || isSelected;
+  static bool isOccasionOrSelected({
+    required bool isPeriodDay,
+    required bool isOvulationDay,
+  }) {
+    // final bool isOccasionOrSelected =
+    //     isPeriodDay || isOvulationDay || isSelected;
+    final bool isOccasionOrSelected = isPeriodDay || isOvulationDay;
 
     return isOccasionOrSelected;
   }

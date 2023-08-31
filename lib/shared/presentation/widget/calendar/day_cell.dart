@@ -49,9 +49,9 @@ class DayCell extends StatelessWidget {
     final bool isToday = CalendarUseCases.isToday(day: day);
 
     final bool isOccasionOrSelected = CalendarUseCases.isOccasionOrSelected(
-        isPeriodDay: isPeriodDay,
-        isOvulationDay: isOvulationDay,
-        isSelected: isSelected);
+      isPeriodDay: isPeriodDay,
+      isOvulationDay: isOvulationDay,
+    );
     //TODO
     // Color backgroundColor = isOvulationDay?
     //     : isPeriodDay
@@ -70,19 +70,17 @@ class DayCell extends StatelessWidget {
 
     return Expanded(
       child: GestureDetector(
-        onTap: selectDate(day),
+        onTap: () => selectDate(day),
         child: AspectRatio(
           aspectRatio: 1.0,
           child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(UIConstants.dayCellRoundness),
-            ),
             child: DecoratedBox(
               decoration: BoxDecoration(
                 border: Border.all(
                   color: borderColor,
                   width: UIConstants.dayCellBorderWidth,
                 ),
+                borderRadius: BorderRadius.circular(UIConstants.dayCellRoundness)
               ),
               child: Center(
                 child: Text(

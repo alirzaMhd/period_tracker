@@ -59,10 +59,10 @@ class LastPeriodGetter extends ConsumerWidget {
                         .monthNavigatorProvider.notifier)
                     .nextMonth(),
                 selectedDate: selectDate,
-                selectDate: hhhh,
+                selectDate: ref.read(LastPeriodGetterProvider.selectDateProvider.notifier).selectDate,
               ),
             ),
-            SizedBox(height: 40.h),
+            SizedBox(height: 30.h),
             RoundedButton(
               text: StringConstants.next,
               textStyle: TextStylesConstants.bodyLarge(context)!
@@ -78,6 +78,3 @@ class LastPeriodGetter extends ConsumerWidget {
   }
 }
 
-hhhh(DateTime dateTime) {
-  // print(dateTime);
-}
