@@ -17,9 +17,10 @@ class AssetsConstants {
   static const newUserPic = '$_pngPath/new_pic.png';
   static const splashPic = '$_pngPath/splash_pic.png';
   static const calenderPic = '$_pngPath/calendar_pic.png';
-  static const doctorPic = '$_svgPath/doctor.svg';
-  static const sanitaryNapkinPic = '$_svgPath/sanitary_napkin.svg';
-  static const womanMainPic = '$_svgPath/woman_main.svg';
-  static const womanProfilePic = '$_svgPath/woman_profile.svg';
+  static const sanitaryNapkinPic = '$_pngPath/sanitary_napkin_pic.png';
+  static const womanMainPic = '$_pngPath/woman_main_pic.png';
+  static const doctorPic = '$_pngPath/doctor_pic.png';
+  static const womanProfilePic = '$_pngPath/woman_profile_pic.png';
+  static const tipsPic = '$_pngPath/tips_pic.png';
   
 }
