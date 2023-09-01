@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:period_tracker/constants/constants.dart';
 
-class CustomWidget extends StatelessWidget {
+class CalendarTips extends StatelessWidget {
   final Color? backgroundColor;
   final Color? borderColor;
   final String tips;
 
-  const CustomWidget(
+  const CalendarTips(
       {super.key, this.backgroundColor, this.borderColor, required this.tips});
 
   @override

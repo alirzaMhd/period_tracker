@@ -4,17 +4,18 @@ import 'package:period_tracker/constants/constants.dart';
 import 'package:period_tracker/features/Main/presentation/widget/widget.dart';
 
 class BottomBar extends StatelessWidget {
-  const BottomBar({super.key});
+  final Function(int) onTap;
+  const BottomBar({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 47.h,
+      height: 55.h,
       width: 137.w,
-      margin: const EdgeInsets.only(bottom: 13),
+      margin: EdgeInsets.only(bottom: 25.h, left: 35.w, right: 35.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: Pallete.redColor,width: 1),
+        border: Border.all(color: Pallete.redColor, width: 1),
         color: Pallete.whiteColor,
         boxShadow: [
           BoxShadow(
@@ -24,20 +25,26 @@ class BottomBar extends StatelessWidget {
           ),
         ],
       ),
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           BottomBarItem(
             icon: Icons.tips_and_updates,
             text: 'Tips',
+            onTap: onTap,
+            index: 0,
           ),
           BottomBarItem(
             icon: Icons.water_drop,
             text: 'Home',
+            onTap: onTap,
+            index: 1,
           ),
           BottomBarItem(
             icon: Icons.co_present_rounded,
             text: 'Profile',
+            onTap: onTap,
+            index: 2,
           ),
         ],
       ),

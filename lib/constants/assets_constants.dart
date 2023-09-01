@@ -22,5 +22,6 @@ class AssetsConstants {
   static const doctorPic = '$_pngPath/doctor_pic.png';
   static const womanProfilePic = '$_pngPath/woman_profile_pic.png';
   static const tipsPic = '$_pngPath/tips_pic.png';
+  static const blobPic = '$_pngPath/blob_pic.png';
   
 }

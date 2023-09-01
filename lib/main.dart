@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:period_tracker/features/Main/presentation/screen/screen_holder.dart';
 import 'package:period_tracker/features/authentication/presentation/screens/last_period_getter.dart';
 import 'package:period_tracker/theme/theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           theme: AppTheme.themeLight,
-          home: const LastPeriodGetter(),
+          home: const ScreenHolder(),
         );
       },
     );

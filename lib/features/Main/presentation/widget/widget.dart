@@ -5,3 +5,5 @@ export 'profile_button.dart';
 export 'profile_circle_widget.dart';
 export 'tips_form.dart';
 export 'bottom_bar_item.dart';
+export 'profile_blob_widget.dart';
+export 'personal_info_widget.dart';

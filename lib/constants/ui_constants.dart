@@ -1,3 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:period_tracker/features/Main/presentation/screen/home.dart';
+import 'package:period_tracker/features/Main/presentation/screen/tips.dart';
+import 'package:period_tracker/features/Main/presentation/screen/profile.dart';
+
+
 class UIConstants {
   static const double authFieldRoundness = 15;
   static const double roundedButtonCornerRoundness = 12;
@@ -14,5 +20,10 @@ class UIConstants {
     'F',
     'S',
     'S'
+  ];
+  static const List<Widget> bottomTabBarPages = [
+    Tips(),
+    Home(),
+    Profile(),
   ];
 }

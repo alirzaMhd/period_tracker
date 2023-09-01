@@ -16,4 +16,18 @@ class StringConstants {
   static const String rememberEveryOneIsUnique =
       'Just remember everyone is uniqe';
   static const String whenWasYourLastPeriod = 'When was your last period';
+  static const String periodStarts = 'Period starts';
+  static const String periodTime = 'Period';
+  static const String today = 'Today';
+  static const String fertilityWindow = 'Fertility window';
+  static const String ovulationDay = 'Ovulation day';
+  static const String selectedDate = 'Selected day';
+  static const String tips = 'Tips';
+  static const String view = 'View';
+  static const String personalInfo = 'personal info';
+  static const String setting = 'Setting';
+  static const String accessCode = 'Access Code';
+  static const String reminder = 'Reminder';
+  static const String help = 'Help';
+  static const String about = 'About';
 }

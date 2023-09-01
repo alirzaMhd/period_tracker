@@ -17,11 +17,12 @@ class TodayStateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250.w,
-      height: 250.w,
+      width: 225.w,
+      height: 225.w,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.blue,
+        border: Border.all(width: 1, color: Pallete.redColor),
+        color: Pallete.whiteColor,
         boxShadow: [
           BoxShadow(
             color: Pallete.shadowColor,
@@ -31,19 +32,25 @@ class TodayStateWidget extends StatelessWidget {
         ],
       ),
       child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(fertilityText,
-                style: TextStylesConstants.bodyMedium(context)!
-                    .copyWith(color: Pallete.greyColor)),
-            Text(periodAlarmText,
-                style: TextStylesConstants.bodyMedium(context)!
-                    .copyWith(color: Pallete.greyColor)),
-            Text(cycleAlarmText,
-                style: TextStylesConstants.bodyMedium(context)!
-                    .copyWith(color: Pallete.greyColor)),
-          ],
+        child: SizedBox(
+          height: 135.h,
+          width: 196.w,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(fertilityText,
+                  style: TextStylesConstants.bodyLarge(context)!
+                      .copyWith(color: Pallete.greyColor)),
+              // SizedBox(width: 500.w),
+              Text(periodAlarmText,
+                  style: TextStylesConstants.bodyLarge(context)!
+                      .copyWith(color: Pallete.greyColor)),
+              // SizedBox(width: 23.w),
+              Text(cycleAlarmText,
+                  style: TextStylesConstants.bodyLarge(context)!
+                      .copyWith(color: Pallete.greyColor)),
+            ],
+          ),
         ),
       ),
     );
