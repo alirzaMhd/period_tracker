@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:period_tracker/features/Main/presentation/screen/screen_holder.dart';
 import 'package:period_tracker/features/authentication/presentation/screens/last_period_getter.dart';
-import 'package:period_tracker/features/authentication/presentation/screens/new_user.dart';
 import 'package:period_tracker/theme/theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'constants/constants.dart';
-import 'features/authentication/presentation/screens/splash_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           theme: AppTheme.themeLight,
-          home: const LastPeriodGetter(),
+          home: const ScreenHolder(),
         );
       },
     );

@@ -30,7 +30,7 @@ class CalendarWidget extends StatelessWidget {
           previousFunction: previousFunction,
           nextFunction: nextFunction,
         ),
-        SizedBox(height: 15.h),
+        SizedBox(height: 20.h),
         const WeekdayLabels(),
         CalendarDaysWidget(
           currentMonth: currentValue,

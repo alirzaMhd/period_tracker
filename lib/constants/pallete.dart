@@ -9,5 +9,6 @@ class Pallete {
   static const Color lightGreyColor = Color.fromARGB(255, 193, 193, 193);
   static const Color greenColor = Color.fromARGB(255, 117, 156, 141);
   static const Color lightGreenColor = Color.fromARGB(255, 176, 212, 199);
+  static final Color shadowColor = blackColor.withOpacity(0.25);
 
 }

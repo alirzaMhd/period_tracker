@@ -25,9 +25,6 @@ class LengthGetterWidget extends ConsumerWidget {
     required this.nextFunction,
     required this.previousFunction,
   });
-  void _handleButtonPress() {
-    print('Button pressed');
-  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
