@@ -14,13 +14,16 @@ class Tips extends StatelessWidget {
         height: UIConstants.screenHeight.h,
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 55.h),
-              Text(
+              Container(
+                padding: EdgeInsets.only(left:40.w),
+                child: Text(
                 StringConstants.tips,
                 style: TextStylesConstants.headlineSmall(context)!
                     .copyWith(color: Pallete.greyColor),
-              ),
+              ),),
               //TODO get from chatgpt and add dialogbox for showing tips
               ListView.builder(
                 shrinkWrap: true,

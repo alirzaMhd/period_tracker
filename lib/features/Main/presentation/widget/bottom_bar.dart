@@ -15,7 +15,6 @@ class BottomBar extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 25.h, left: 35.w, right: 35.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: Pallete.redColor, width: 1),
         color: Pallete.whiteColor,
         boxShadow: [
           BoxShadow(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:period_tracker/constants/constants.dart';
 
 class BottomBarItem extends StatelessWidget {
@@ -21,7 +22,7 @@ class BottomBarItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, color: Pallete.redColor),
+          Icon(icon, color: Pallete.redColor, size: 15.sp),
           Text(
             text,
             style: TextStylesConstants.bodyMedium(context)!

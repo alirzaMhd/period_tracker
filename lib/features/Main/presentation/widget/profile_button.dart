@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:period_tracker/constants/constants.dart';
 
 class ProfileButton extends StatelessWidget {
@@ -15,30 +16,32 @@ class ProfileButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Pallete.whiteColor,
-          borderRadius: BorderRadius.circular(18.0),
-          boxShadow: [
-            BoxShadow(
-              color: Pallete.shadowColor,
-              blurRadius: 20.0,
-              spreadRadius: -3.0,
-            ),
-          ],
-        ),
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 35.w, vertical: 10.h),
+      decoration: BoxDecoration(
+        color: Pallete.whiteColor,
+        borderRadius: BorderRadius.circular(18.0),
+        boxShadow: [
+          BoxShadow(
+            color: Pallete.shadowColor,
+            blurRadius: 20.0,
+            spreadRadius: -3.0,
+          ),
+        ],
+      ),
+      child: GestureDetector(
+        onTap: onPressed,
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0.w),
           child: Row(
             children: [
               Icon(icon),
-              const SizedBox(width: 16.0),
+              SizedBox(width: 16.0.w),
               Expanded(
                 child: Text(
                   text,
-                  style: const TextStyle(fontSize: 16.0),
+                  style: TextStylesConstants.bodyMedium(context)!
+                      .copyWith(color: Pallete.greyColor),
                 ),
               ),
               const Icon(Icons.arrow_forward_ios_outlined),

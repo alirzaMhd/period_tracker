@@ -20,6 +20,7 @@ class Profile extends StatelessWidget {
               profilePic: AssetsConstants.splashPic,
               username: "username",
             ),
+            SizedBox(height: 15.h),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(

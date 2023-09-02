@@ -12,14 +12,15 @@ class PersonalInfoWidget extends StatelessWidget {
       children: [
         Text(
           StringConstants.personalInfo,
-          style: TextStylesConstants.bodyLarge(context)!.copyWith(
+          style: TextStylesConstants.bodyMedium(context)!.copyWith(
             color: Pallete.redColor,
+            fontWeight: TextStylesConstants.regularFontWeight,
           ),
         ),
-        SizedBox(height: 5.h),
+        SizedBox(height: 3.h),
         Text(
           username,
-          style: TextStylesConstants.headlineMedium(context)!.copyWith(
+          style: TextStylesConstants.headlineSmall(context)!.copyWith(
             color: Pallete.greyColor,
           ),
         ),

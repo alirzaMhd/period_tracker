@@ -22,6 +22,7 @@ class TipsForm extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24.0),
+        color: Pallete.whiteColor,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -34,15 +35,17 @@ class TipsForm extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 20.h, horizontal: 35.w),
       padding: EdgeInsets.all(12.w),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             decoration:
                 BoxDecoration(borderRadius: BorderRadius.circular(18.0)),
             child: Image.asset(imagePath),
           ),
+          SizedBox(width: 10.w),
           Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   title,
@@ -53,12 +56,13 @@ class TipsForm extends StatelessWidget {
                 Text(
                   subtitle,
                   overflow: TextOverflow.ellipsis,
+                  maxLines: 4,
                   style: TextStylesConstants.bodyMedium(context)!.copyWith(
                     color: Pallete.greyColor,
                     fontWeight: TextStylesConstants.regularFontWeight,
                   ),
                 ),
-                const SizedBox(height: 6.0),
+                const SizedBox(height: 5.0),
                 RoundedButton(
                   text: StringConstants.view,
                   textStyle: TextStylesConstants.bodyMedium(context)!
