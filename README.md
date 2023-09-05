@@ -8,3 +8,4 @@ My sample portfolio app to keep track of the period and woman cycles.
 - [ ] add backend
 - [ ] add profile screens
 - [ ] Publish
+- [ ] Add a Loading Screen
